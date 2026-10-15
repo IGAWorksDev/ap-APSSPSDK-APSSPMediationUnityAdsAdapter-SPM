@@ -8,7 +8,7 @@ public final class UnityAdsAdapterFactory: NSObject, APSSPAdapterFactory {
     public static var networkID: Int { 7 }
 
     public static var sdkVersion: String? { UnityAdsInitializationAdpater().sdkVersion }
-    public static var adapterVersion: String? { "4.20.0.0" }
+    public static var adapterVersion: String? { "4.20.1.0" }
 
     public static func makeInitializationAdapter() -> AnyObject? {
         return UnityAdsInitializationAdpater()
