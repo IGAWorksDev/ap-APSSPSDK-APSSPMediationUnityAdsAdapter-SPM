@@ -11,12 +11,16 @@ import APSSPSDK
 
 final public class UnityAdsRewardVideoAdapter: APSSPRewardVideoAdapterInappBiddingProtocol {
     
-    public var rootViewController: UIViewController?
+    public weak var rootViewController: UIViewController?
 
     private var rewardVideoAd: UnityAdsMediationRewardVideoAd?
     
-    public var delegate: APSSPRewardVideoAdapterDelegate?
+    public weak var delegate: APSSPRewardVideoAdapterDelegate?
     
+    deinit {
+        APLogger.debug("UnityAdsRewardVideoAdapter deinit")
+    }
+
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String : Any?]) {
         let placementId = placementDic[APSSPPlacementKey.unityPlacementId.rawValue] ?? ""
         let gameID = placementDic[APSSPPlacementKey.unityGameId.rawValue] ?? ""

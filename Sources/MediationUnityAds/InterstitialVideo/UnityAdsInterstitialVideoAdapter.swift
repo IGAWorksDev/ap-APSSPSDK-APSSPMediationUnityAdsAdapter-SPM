@@ -14,10 +14,14 @@ final public class UnityAdsInterstitialVideoAdapter: APSSPInterstitialVideoAdapt
    
     private var interstitialVideoAd: UnityAdsMediationInterstitialVideoAd?
     
-    public var delegate: APSSPInterstitialVideoAdapterDelegate?
+    public weak var delegate: APSSPInterstitialVideoAdapterDelegate?
     
-    public var rootViewController: UIViewController?
+    public weak var rootViewController: UIViewController?
     
+    deinit {
+        APLogger.debug("UnityAdsInterstitialVideoAdapter deinit")
+    }
+
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String : Any?]) {
         let placementId = placementDic[APSSPPlacementKey.unityPlacementId.rawValue] ?? ""
         let gameID = placementDic[APSSPPlacementKey.unityGameId.rawValue] ?? ""

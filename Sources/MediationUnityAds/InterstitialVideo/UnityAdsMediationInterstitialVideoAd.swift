@@ -13,7 +13,7 @@ import UnityAds
 
 final class UnityAdsMediationInterstitialVideoAd: NSObject {
     
-    var delegate: APSSPInterstitialVideoAdapterDelegate?
+    weak var delegate: APSSPInterstitialVideoAdapterDelegate?
     
     private let gameID: String
     
@@ -62,7 +62,7 @@ extension UnityAdsMediationInterstitialVideoAd: UnityAdsLoadDelegate, UnityAdsSh
     
     func unityAdsShowFailed(_ placementId: String, withError error: UnityAdsShowError, withMessage message: String) {
         APLogger.error("UnityAds InterstitialVideo Error: \(message)")
-        delegate?.interstitialVideoLoadFail(error: .nextMediation, errorMessage: message)
+        delegate?.interstitialVideoShowFail(message: message)
     }
     
     func unityAdsShowStart(_ placementId: String) {

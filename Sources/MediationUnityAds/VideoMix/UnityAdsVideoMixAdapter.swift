@@ -8,13 +8,17 @@ import APSSPSDK
 import UnityAds
 
 final public class UnityAdsVideoMixAdapter: APSSPVideoMixAdAdapterInappBiddingProtocol {
-    public var rootViewController: UIViewController?
-    public var videoMixDelegate: APSSPVideoMixAdAdapterDelegate?
+    public weak var rootViewController: UIViewController?
+    public weak var videoMixDelegate: APSSPVideoMixAdAdapterDelegate?
     public var videoMixAdType: APSSPVideoMixAdType = .RewardVideo
     private var placementDic: [String: String] = [:]
     private var interstitialAdapter: UnityAdsInterstitialAdapter?
     private var interstitialVideoAdapter: UnityAdsInterstitialVideoAdapter?
     private var rewardVideoAdapter: UnityAdsRewardVideoAdapter?
+
+    deinit {
+        APLogger.debug("UnityAdsVideoMixAdapter deinit")
+    }
 
     public init(placementDic: [String: String], rootViewController: UIViewController?, info: [String: Any?]) {
         self.placementDic = placementDic; self.rootViewController = rootViewController

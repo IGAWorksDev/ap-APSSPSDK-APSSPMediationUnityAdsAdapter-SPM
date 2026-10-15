@@ -12,7 +12,7 @@ import UnityAds
 
 final class UnityAdsMediationRewardVideoAd: NSObject {
     
-    var delegate: APSSPRewardVideoAdapterDelegate?
+    weak var delegate: APSSPRewardVideoAdapterDelegate?
     
     private let gameID: String
     private let placementId: String

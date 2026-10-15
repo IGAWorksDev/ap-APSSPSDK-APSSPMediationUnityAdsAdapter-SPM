@@ -13,7 +13,7 @@ import UnityAds
 
 final class UnityAdsMediationInterstitialAd: NSObject {
     
-    var delegate: APSSPInterstitialAdapterDelegate?
+    weak var delegate: APSSPInterstitialAdapterDelegate?
     
     private let gameID: String
     private let placementId: String

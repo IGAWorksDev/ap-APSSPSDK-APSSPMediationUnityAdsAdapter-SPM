@@ -17,7 +17,7 @@ final class UnityAdsMediationBannerView: UIView {
     private let gameID: String
     private let placementId: String
     private var bannerType: APSSPBannerSize
-    private var rootViewController: UIViewController?
+    private weak var rootViewController: UIViewController?
     private var biddingData: String?
     
     private var bannerView: UADSBannerView?
